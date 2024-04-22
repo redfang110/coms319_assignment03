@@ -15,6 +15,9 @@ function App() {
 
   return (
     <div className="App">
+       <div>
+            <h1 className='text-32xl'>Hello,Tailwind</h1>
+        </div>
       <header>
         <nav>
           <ul>
