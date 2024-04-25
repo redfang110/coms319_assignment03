@@ -7,7 +7,7 @@ function CreateView() {
     price: "",
     description: "",
     category: "",
-    imageUrl: "",
+    image: "",
     rate: "",
     count: "",
   });
@@ -56,10 +56,10 @@ function CreateView() {
       errors.category = "category is required";
     }
 
-    // imageUrl validation
-    if (!userInfoForm.imageUrl.trim()) {
+    // image validation
+    if (!userInfoForm.image.trim()) {
       isValid = false;
-      errors.imageUrl = "imageUrl is required";
+      errors.image = "image URL is required";
     }
 
     // rate validation

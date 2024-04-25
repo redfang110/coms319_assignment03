@@ -1,7 +1,7 @@
 var express = require("express");
 var cors = require("cors");
 var app = express();
-var fs = require("fs");
+// var fs = require("fs");
 var bodyParser = require("body-parser");
 
 app.use(cors());
@@ -50,8 +50,8 @@ app.get("/products/:id", async (req, res) => {
 app.post("/products", async (req, res) => {
   try {
     await client.connect();
-    const keys = Object.keys(req.body);
-    const values = Object.values(req.body);
+    // const keys = Object.keys(req.body);
+    // const values = Object.values(req.body);
 
     const urlRegex = /^(ftp|http|https):\/\/[^ "]+$/;
     if (!urlRegex.test(req.body.imageUrl)) {
@@ -64,7 +64,7 @@ app.post("/products", async (req, res) => {
       price: req.body.price,
       description: req.body.description,
       category: req.body.category,
-      imageUrl: req.body.imageUrl,
+      image: req.body.image,
       rating: {
         rate: parseFloat(req.body.rate),
         count: parseInt(req.body.count),
@@ -95,7 +95,7 @@ app.delete("/products/:id", async (req, res) => {
     }
 
     // delete
-    const results = await db.collection("fakestore_catalog").deleteOne(query);
+    await db.collection("fakestore_catalog").deleteOne(query);
     res.status(200);
     res.send(productDeleted);
   } catch (error) {
